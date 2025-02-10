@@ -1,0 +1,75 @@
+.product-card 
+{
+  width: 350px;
+  height: 450px;
+  display: block;
+  background-color:  #cccccc;
+  color: #feffff;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  display: grid;
+  grid-template-areas: 
+  "Img ."
+  "Beschreibung ."
+  "Preis Warenkorb";
+  grid-template-rows: 320px auto 40px;
+  grid-template-columns: 175px 175px ;
+}
+
+.bilder 
+{
+  grid-area: Img;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: white;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.warenkorb-button
+{
+  position: absolute; 
+  bottom: 10px; 
+  right: 10px; 
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  cursor: pointer;
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+  img
+  {
+    width: 30px;
+    height: 30px;
+  }
+
+  .beschreibung
+  {
+    grid-area: Beschreibung;
+    height: auto;
+    width: 250px;
+    word-wrap: break-word;
+    font-weight: bolder;
+    font-style: oblique;
+
+  }
+
+  .produktpreis
+  {
+    grid-area: Preis;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+  }
+
+  
+ 
+

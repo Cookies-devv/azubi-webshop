@@ -1,0 +1,31 @@
+<main>
+  <div id="header">
+    <img src="Bilder/logo.png" height="30px">
+  </div>
+  <div id="navigation">
+
+    <button class="profilbild-button" (click)="profilClicked()">
+      <img src="Bilder/profilbild.png">
+    </button>
+
+    <button (click)="einkaufeClicked()" class="einkaeufe">
+      Einkäufe
+    </button>
+
+    <button class="logout" (click)="logoutClicked()">
+      <img src="Bilder/logout.png">
+    </button>
+
+  </div>
+  <div id="produkte">
+    @for(product of products; track $index)
+    {
+    <app-product-card [produkt]="product" />
+    }
+  </div>
+  <div id="warenkorb">
+    <button class="warenkorb-button" (click)="warenkorbClicked()">
+      <img src="Bilder/warenkorb.png">
+    </button>
+  </div>
+</main>

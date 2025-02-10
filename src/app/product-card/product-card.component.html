@@ -1,0 +1,19 @@
+<div class="product-card">
+  <div>
+    <img [src]="produkt.bildUrl" class="bilder" />
+  </div>
+
+  <div class="beschreibung">
+    {{ produkt.beschreibung }}
+  </div>
+
+  <div class="produktpreis">
+    {{ produkt.preis | number : "1.2-2" }}
+  </div>
+
+  <button class="warenkorb-button" (click)="warenkorbclicked()">
+    <img src="Bilder/warenkorb.png">
+    <p>{{ counter }}x</p>
+  </button>
+
+</div>
