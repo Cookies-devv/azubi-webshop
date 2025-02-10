@@ -1,10 +1,12 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { WarenkorbService } from '../services/warenkorb/warenkorb.service';
 
 export interface Produkt {
   bildUrl: string;
   beschreibung: string;
   preis: number;
+  id: string;
 }
 
 @Component({
@@ -21,11 +23,15 @@ export class ProductCardComponent {
   warenkorbbuttomCklicked: boolean = true; 
   counter: number = 0;
 
+  constructor(private warenkorbServices: WarenkorbService) {}
+
+
   warenkorbclicked()
   {
     if (this.warenkorbbuttomCklicked)
     {
       this.counter ++;
+      this.warenkorbServices.addWarenkorb(this.produkt);
     }
 
   }

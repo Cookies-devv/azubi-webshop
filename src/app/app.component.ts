@@ -1,26 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {
-  ProductCardComponent,
-  Produkt,
-} from './product-card/product-card.component';
+import { ProductCardComponent, Produkt } from './product-card/product-card.component';
 import { productMock } from './product.mock';
+import { WarenkorbService } from './services/warenkorb/warenkorb.service'; 
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, JsonPipe],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
+  providers: [WarenkorbService]
 })
-export class AppComponent {
-  private readonly newProperty = './app.component.html';
-
+export class AppComponent implements OnInit {
   title = 'azubi-webshop';
-
   products: Produkt[] = productMock;
+  warenkorbProduct: Produkt[] = [];
 
-  warenkorbClicked() {
-    alert('Der Warenkorb:');
+
+  constructor(private warenkorbService: WarenkorbService) { }
+  ngOnInit(): void {
+    this.warenkorbProduct = this.warenkorbService.warenkorb;
+  }
+
+
+  warenkorbClicked(productMock: Produkt) {
+    this.warenkorbService.addWarenkorb(productMock);
   }
 
   profilClicked() {
@@ -28,7 +33,7 @@ export class AppComponent {
   }
 
   einkaufeClicked() {
-    alert('Einkauffenster');
+    alert('Einkaufen Fenster');
   }
 
   logoutClicked() {
