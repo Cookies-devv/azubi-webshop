@@ -2,31 +2,32 @@ main {
   height: 100%;
   display: grid;
   grid-template-areas:
-    "header header header"
+    "header header warenkorb"
     "navigation produkte warenkorb";
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 100px 1fr;
   grid-template-columns: 120px 1fr 30%;
 
-  #header 
-  {
+  #header {
     grid-area: header;
     background-color: #cccccc;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .img {
+      width: 20%;
+      height: auto;
+    }
   }
 
-  #navigation 
-  {
-    
-    
+  #navigation {
+
     grid-area: navigation;
     background-color: #cccccc;
     display: grid;
     grid-template-rows: 40px auto 40px;
 
-    .profilbild-button 
-    {
+    .profilbild-button {
       width: 45px;
       height: 45px;
       cursor: pointer;
@@ -38,8 +39,7 @@ main {
       border-color: transparent;
     }
 
-    .einkaeufe
-    {
+    .einkaeufe {
       width: 70%;
       height: 40px;
       font-size: 9px;
@@ -50,8 +50,7 @@ main {
       border-color: transparent;
     }
 
-    .logout
-    {
+    .logout {
       width: 70%;
       height: 40px;
       cursor: pointer;
@@ -61,31 +60,63 @@ main {
       align-items: stretch;
       border-radius: 10%;
       border-color: transparent;
-      
+
     }
   }
 
-  #produkte 
-  {
+  #produkte {
     grid-area: produkte;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
   }
 
-  #warenkorb 
-  {
+
+
+  #warenkorb {
     grid-area: warenkorb;
     background-color: #cccccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-   
-    img
-    {
-      width: 50px;
-      height: 50px;
+
+    .imgWarenkorbschrift {
+      width: 200px;
+      height: auto;
+      display: flex;
+      justify-self: center;
+      grid-template-areas:
+        "Img Beschreibung"
+        ". Preis"
+        ". Entfernen";
+      grid-template-rows: 320px auto 40px;
+      grid-template-columns: 175px 175px;
+    }
+
+    .imgProdukt {
+      grid-area: Img;
+      display: flex;
+      justify-items: left;
+      width: 200px;
+      height: 200px;
+
+    }
+
+    .beschreibung {
+      grid-area: Beschreibung;
+      display: flex;
+      width: auto;
+      height: auto;
+    }
+
+    .preis {
+      grid-area: Preis;
+      display: flex;
+      width: auto;
+      height: auto;
+    }
+
+    .entfernen {
+      grid-area: Entfernen;
+      height: auto;
+      width: auto;
     }
   }
 }

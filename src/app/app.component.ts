@@ -9,7 +9,7 @@ import { Produkt } from './product-card/product_interface';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCardComponent, JsonPipe, NgForOf],
+  imports: [ProductCardComponent, NgForOf],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [WarenkorbService]
@@ -29,9 +29,13 @@ export class AppComponent implements OnInit {
     this.warenkorbService.addWarenkorb(productMock);
   }
 
-  removeFromWarenkorb(productId: string): void {
-    this.warenkorbService.removeFromWarenkorb(productId);
+  anzahlerNiedrigen(productId: string): void {
+    this.warenkorbService.anzahlerniedrigen(productId);
   }
+
+  // get WarenkorbItems(): Produkt[] {
+  //   return this.warenkorbService.getWarenkorb().groupBy(x => x.id);
+  // }
 
   profilClicked() {
     alert('Profil');

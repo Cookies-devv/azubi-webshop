@@ -10,33 +10,47 @@ export class WarenkorbService {
 
   constructor() { }
 
-  addWarenkorb(product: Produkt) : void{
-    this.warenkorb.push(product);
-    alert("Das Produkt wurde hinzugefügt");
+  addWarenkorb(product: Produkt): void {
+    if(!this.warenkorb.some(p => p.id === product.id)) {
+      this.warenkorb.push(product);}
+    this.anzahlErhoehen(product.id);
     console.log(this.warenkorb);
+  }
 
-    for (product of this.warenkorb) {
-      
+  anzahlErhoehen(id: string) {
+    for (let i = 0; i < this.warenkorb.length; i++) {
+      if (this.warenkorb[i].id == id) {
+        this.warenkorb[i].anzahl++;
+        break;
+      }
     }
   }
 
-  getWarenkorb() : Produkt[] {
+  getWarenkorb(): Produkt[] {
     return this.warenkorb;
   }
 
-  removeFromWarenkorb(productId: string): void {
-    const newWarenkorb: Produkt[] = [];
-    
+  anzahlerniedrigen(id: string) {
     for (let i = 0; i < this.warenkorb.length; i++) {
-      if (this.warenkorb[i].id !== productId) {
-        newWarenkorb.push(this.warenkorb[i]);
+      if (this.warenkorb[i].id == id) {
+        this.warenkorb[i].anzahl--;
+      }
+      if (this.warenkorb[i].anzahl == 0) {
+        this.removeFromWarenkorb(this.warenkorb[i].id);
       }
     }
-    
-    this.warenkorb = newWarenkorb;
+  }
+
+  removeFromWarenkorb(productId: string): void {
+
+    for (let i = 0; i < this.warenkorb.length; i++) {
+      if (this.warenkorb[i].id === productId) {
+        this.warenkorb.splice(i, 1);
+      }
+    }
   }
 
 
 
-  
+
 }

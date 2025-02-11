@@ -8,6 +8,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Parfüm',
     preis: 400,
     id: crypto.randomUUID(),
+    anzahl: 0,
 
   },
   {
@@ -16,6 +17,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Handtasche',
     preis: 4000,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
   {
     bildUrl:
@@ -23,6 +25,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Air Jordan 1 Retro High OG Hyper Royal',
     preis: 400,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
   {
     bildUrl:
@@ -30,6 +33,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Jordan 1 Retro Low 85',
     preis: 170,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
   {
     bildUrl:
@@ -37,6 +41,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Hoodie grau',
     preis: 80,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
   {
     bildUrl:
@@ -44,6 +49,7 @@ export const productMock: Produkt[] = [
     beschreibung: 'Zip Hoodie weiß',
     preis: 90,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
   {
     bildUrl:
@@ -51,5 +57,6 @@ export const productMock: Produkt[] = [
     beschreibung: 'T-Shirt Babyblau',
     preis: 60,
     id: crypto.randomUUID(),
+    anzahl: 0,
   },
 ];

@@ -15,7 +15,7 @@ export class ProductCardComponent {
 
   //deklaratioon der Variablen
   warenkorbbuttomCklicked: boolean = true; 
-  counter: number = 0;
+
 
   constructor(private warenkorbServices: WarenkorbService) {}
 
@@ -24,7 +24,6 @@ export class ProductCardComponent {
   {
     if (this.warenkorbbuttomCklicked)
     {
-      this.counter ++;
       this.warenkorbServices.addWarenkorb(this.produkt);
     }
 
