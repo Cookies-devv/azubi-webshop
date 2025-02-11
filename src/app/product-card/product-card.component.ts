@@ -1,13 +1,7 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { WarenkorbService } from '../services/warenkorb/warenkorb.service';
-
-export interface Produkt {
-  bildUrl: string;
-  beschreibung: string;
-  preis: number;
-  id: string;
-}
+import { Produkt } from './product_interface';
 
 @Component({
   selector: 'app-product-card',

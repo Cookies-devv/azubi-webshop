@@ -1,5 +1,7 @@
-export interface IProduct {
-    id: string;
-    name: string;
-    price: number;
+export interface Produkt {
+
+     bildUrl: string;
+     beschreibung: string;
+     preis: number;
+     id: string;
  }

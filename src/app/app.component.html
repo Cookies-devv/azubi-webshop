@@ -26,14 +26,15 @@
 
   <div id="warenkorb">
     <img src="Bilder/warenkorbSchrift.png" style="width: auto;" />
-    <pre>{{warenkorbProduct | json}}</pre>
+    <!-- <pre>{{warenkorbProduct | json}}</pre> --> <!-- Gibt das aktuelle Array aus -->
+
     <div *ngFor="let product of warenkorbService.getWarenkorb()">
-      <img [src]="product.imageUrl" alt="{{product.name}}" />
-      <h3>{{product.name}}</h3>
-      <p>{{product.description}}</p>
-      <p>Preis: {{product.price }}</p>
+      <img [src]="product.bildUrl" alt="{{product.beschreibung}}"/>
+      <h3>{{product.beschreibung}}</h3>
+      <p>Preis: {{product.preis }}</p>
       <button (click)="removeFromWarenkorb(product.id)">Entfernen</button>
+
     </div>
   </div>
-  
+
 </main>
