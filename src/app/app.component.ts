@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
     this.warenkorbService.addWarenkorb(productMock);
   }
 
+  removeFromWarenkorb(productId: string): void {
+    this.warenkorbService.removeFromWarenkorb(productId);
+  }
+
   profilClicked() {
     alert('Profil');
   }

@@ -15,16 +15,25 @@
     <button class="logout" (click)="logoutClicked()">
       <img src="Bilder/logout.png">
     </button>
-
   </div>
+
   <div id="produkte">
-    @for(product of products; track $index)
+    @for(product of products; track products)
     {
     <app-product-card [produkt]="product" />
     }
   </div>
+
   <div id="warenkorb">
-      <img src="Bilder/warenkorbSchrift.png" style="width: auto;"/>
-      <pre>{{warenkorbProduct | json}}</pre>
+    <img src="Bilder/warenkorbSchrift.png" style="width: auto;" />
+    <pre>{{warenkorbProduct | json}}</pre>
+    <div *ngFor="let product of warenkorbService.getWarenkorb()">
+      <img [src]="product.imageUrl" alt="{{product.name}}" />
+      <h3>{{product.name}}</h3>
+      <p>{{product.description}}</p>
+      <p>Preis: {{product.price }}</p>
+      <button (click)="removeFromWarenkorb(product.id)">Entfernen</button>
+    </div>
   </div>
+  
 </main>
