@@ -4,7 +4,7 @@ import { Produkt } from "./product-card/product_interface";
 export const productMock: Produkt[] = [
   {
     bildUrl:
-      'https://www.le-flacon.com/out/pictures/master/product/1/0888066082341.jpg',
+      'Bilder/Parfuem2.png',
     beschreibung: 'Parfüm',
     preis: 400,
     id: crypto.randomUUID(),
@@ -26,9 +26,30 @@ export const productMock: Produkt[] = [
   },
   {
     bildUrl:
-    'https://zizouclothing.com/cdn/shop/files/1grauhoodie.png?v=1702818112&width=1000',
+    'https://images.footlocker.com/is/image/FLEU/314106146104_01?wid=581&hei=581&fmt=png-alpha',
+    beschreibung: 'Jordan 1 Retro Low 85',
+    preis: 170,
+    id: crypto.randomUUID(),
+  },
+  {
+    bildUrl:
+    'Bilder/HoodieModeZauber.png',
     beschreibung: 'Hoodie grau',
     preis: 80,
     id: crypto.randomUUID(),
-  }
+  },
+  {
+    bildUrl:
+    'Bilder/ZipHoodie2.png',
+    beschreibung: 'Zip Hoodie weiß',
+    preis: 90,
+    id: crypto.randomUUID(),
+  },
+  {
+    bildUrl:
+    'Bilder/T-shirt.png',
+    beschreibung: 'T-Shirt Babyblau',
+    preis: 60,
+    id: crypto.randomUUID(),
+  },
 ];
