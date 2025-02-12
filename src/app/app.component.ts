@@ -6,7 +6,6 @@ import { WarenkorbService } from './services/warenkorb/warenkorb.service';
 import {JsonPipe, NgFor, NgForOf} from '@angular/common';
 import { Produkt } from './product-card/product_interface';
 
-
 @Component({
   selector: 'app-root',
   imports: [ProductCardComponent, NgForOf],
@@ -24,7 +23,6 @@ export class AppComponent implements OnInit {
     this.warenkorbProduct = this.warenkorbService.warenkorb;
   }
 
-
   warenkorbClicked(productMock: Produkt) {
     this.warenkorbService.addWarenkorb(productMock);
   }
@@ -33,9 +31,9 @@ export class AppComponent implements OnInit {
     this.warenkorbService.anzahlerniedrigen(productId);
   }
 
-  // get WarenkorbItems(): Produkt[] {
-  //   return this.warenkorbService.getWarenkorb().groupBy(x => x.id);
-  // }
+  anzahlErhoehen(productId: string): void {
+    this.warenkorbService.anzahlErhoehen(productId);
+  }
 
   profilClicked() {
     alert('Profil');
