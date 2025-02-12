@@ -3,15 +3,16 @@ import { RouterOutlet } from '@angular/router';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { productMock } from './product.mock';
 import { WarenkorbService } from './services/warenkorb/warenkorb.service';
-import {JsonPipe, NgFor, NgForOf} from '@angular/common';
+import {CommonModule, JsonPipe, NgFor, NgForOf} from '@angular/common';
 import { Produkt } from './product-card/product_interface';
+import { WarenkorbComponent } from "./warenkorb/warenkorb.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCardComponent, NgForOf],
+  imports: [ProductCardComponent, WarenkorbComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [WarenkorbService]
+  styleUrls: ['./app.component.scss'],  
 })
 export class AppComponent implements OnInit {
   title = 'azubi-webshop';
@@ -25,14 +26,6 @@ export class AppComponent implements OnInit {
 
   warenkorbClicked(productMock: Produkt) {
     this.warenkorbService.addWarenkorb(productMock);
-  }
-
-  anzahlerNiedrigen(productId: string): void {
-    this.warenkorbService.anzahlerniedrigen(productId);
-  }
-
-  anzahlErhoehen(productId: string): void {
-    this.warenkorbService.anzahlErhoehen(productId);
   }
 
   profilClicked() {

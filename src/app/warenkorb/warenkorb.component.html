@@ -1,0 +1,16 @@
+<div *ngFor="let product of warenkorbService.getWarenkorb()" class="grid-containerWarenkorb">
+
+    <img class="imgProdukt" [src]="product.bildUrl" alt="{{product.beschreibung}}" />
+    <h3 class="beschreibung">{{product.beschreibung}}</h3>
+    <span class="preis">Preis: {{product.preis }}</span>
+
+    <div class="grid-containerAnzahl">
+    <span class="anzahl">Anzahl: {{product.anzahl}}</span>
+    <button (click)="anzahlerNiedrigen(product.id)" class="entfernen">
+      <img src="Bilder/minus.png"/>
+    </button>
+    <button class="hinzufuegen" (click)="anzahlerErhoehen(product.id)">
+      <img src="Bilder/plus.png"/>
+    </button>
+    </div>
+  </div>

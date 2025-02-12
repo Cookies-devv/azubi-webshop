@@ -1,5 +1,5 @@
 <main>
-  
+
   <div id="header">
     <img src="Bilder/logo.png" class="img">
   </div>
@@ -27,17 +27,10 @@
 
   <div id="warenkorb">
     <img src="Bilder/warenkorbSchrift.png" class="imgWarenkorbschrift" />
-    <!-- <pre>{{warenkorbProduct | json}}</pre> --> <!-- Gibt das aktuelle Array aus -->
-
-    <div *ngFor="let product of warenkorbService.getWarenkorb()">
-      <img class="imgProdukt" [src]="product.bildUrl" alt="{{product.beschreibung}}" />
-      <h3 class="beschreibung">{{product.beschreibung}}</h3>
-      <p class="preis">Preis: {{product.preis }}</p>
-      <p class="anzahl">Anzahl: {{product.anzahl}}</p>
-      <button (click)="anzahlerNiedrigen(product.id)" class="entfernen">
-        Entfernen
-      </button>
-
+    <div id="warenkorbInhalt">
+      @for(product of warenkorbProduct; track $index) {
+      <app-warenkorb [produkt]="product"/>
+      }
     </div>
   </div>
 </main>
