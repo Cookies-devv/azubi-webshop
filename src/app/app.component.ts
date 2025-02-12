@@ -24,10 +24,6 @@ export class AppComponent implements OnInit {
     this.warenkorbProduct = this.warenkorbService.warenkorb;
   }
 
-  warenkorbClicked(productMock: Produkt) {
-    this.warenkorbService.addWarenkorb(productMock);
-  }
-
   profilClicked() {
     alert('Profil');
   }

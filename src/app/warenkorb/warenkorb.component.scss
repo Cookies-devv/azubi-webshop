@@ -3,17 +3,24 @@
      display: grid;
      grid-template-columns: 33% 33% 33%;
      grid-template-rows: 50% 50%;
+     border-style: solid;
+     border-color: white;
+     border-radius: 10px;
+     margin: 20px;
+     background-color: rgb(180, 195, 208);
+
+
 
      .imgProdukt {
-         grid-row: 1;
-         grid-column: 1/ -1;
+         grid-row-start: 1;
+         grid-row-end: span 2;
+         grid-column: 1;
+    
          height: auto;
-         width: 200px;
+         max-width: 200px;
          justify-self: left;
-         margin-top: 2.5%;
-         margin-bottom: 2.5%;
-         margin-left: 2.5%;
-         border-radius: 10%;
+         align-content: center;
+         border-radius: 5px;
          background-color: white;
 
      }
@@ -25,6 +32,8 @@
          width: auto;
          height: auto;
          word-wrap: break-word;
+         color: white;
+         font-weight: bolder;
      }
 
 
@@ -33,57 +42,100 @@
          grid-column: 2;
          width: auto;
          height: auto;
+         color: white;
+         font-weight: bolder;
      }
 
-     .grid-containerAnzahl {
+     .gesamtpreis {
          grid-row: 2;
-         grid-column: 3;
-         display: grid;
-         grid-template-columns: 50% 50%;
-         grid-template-rows: 50% 50%;
+         grid-column: 2;
+         width: auto;
+         height: auto;
+         align-self: self-end;
+         margin-bottom: 5%;
+         color: white;
+         font-weight: bolder;
+     }
 
-         .anzahl {
-             grid-row: 1;
-             grid-column: 1/ -1;
-             justify-self: center;
-             align-self: center;
-             width: auto;
-             height: auto;
-         }
+     .delete {
+        grid-row: 1;
+        grid-column: 3;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-self: right;
+        justify-content: center;
+        border-radius: 15%;
+        border-color: transparent;
+        background-color: transparent;
+        cursor: pointer;
+       
 
-         .entfernen {
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+  
+
+         .grid-containerAnzahl {
              grid-row: 2;
-             grid-column: 1;
-             display: flex;
-             justify-self: right;
-             align-items: center;
-             justify-content: center;
-             border-radius: 15%;
-             height: 30px;
-             width: 30px;
+             grid-column: 3;
+             display: grid;
+             grid-template-columns: 50% 50%;
+             grid-template-rows: 50% 50%;
 
-             img {
-                 width: 30px;
-                 height: 30px;
-             }
-         }
-
-         .hinzufuegen {
-             grid-row: 2;
-             grid-column: 2;
-             display: flex;
-             justify-self: left;
-             align-items: center;
-             justify-content: center;
-             border-radius: 15%;
-             height: 30px;
-             width: 30px;
-
-             img {
-                 width: 30px;
-                 height: 30px;
+             .anzahl {
+                 grid-row: 1;
+                 grid-column: 1/ -1;
+                 justify-self: center;
+                 align-self: center;
+                 width: auto;
+                 height: auto;
+                 color: white;
+                 font-weight: bolder;
              }
 
+             .entfernen {
+                 grid-row: 2;
+                 grid-column: 1;
+                 height: 30px;
+                 width: 30px;
+                 display: flex;
+                 justify-self: right;
+                 align-items: center;
+                 justify-content: center;
+                 border-radius: 15%;
+                 cursor: pointer;
+                 border-color: transparent;
+                 background-color: transparent;
+
+                 img {
+                     width: 30px;
+                     height: 30px;
+                 }
+             }
+
+             .hinzufuegen {
+                 grid-row: 2;
+                 grid-column: 2;
+                 height: 30px;
+                 width: 30px;
+                 display: flex;
+                 justify-self: left;
+                 align-items: center;
+                 justify-content: center;
+                 border-radius: 15%;
+                 cursor: pointer;
+                 border-color: transparent;
+                 background-color: transparent;
+       
+
+                 img {
+                     width: 30px;
+                     height: 30px;
+                 }
+
+             }
          }
      }
- }

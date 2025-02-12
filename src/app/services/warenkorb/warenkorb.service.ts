@@ -11,8 +11,9 @@ export class WarenkorbService {
   constructor() { }
 
   addWarenkorb(product: Produkt): void {
-    if(!this.warenkorb.some(p => p.id === product.id)) {
-      this.warenkorb.push(product);}
+    if (!this.warenkorb.some(p => p.id === product.id)) {
+      this.warenkorb.push(product);
+    }
     this.anzahlErhoehen(product.id);
     console.log(this.warenkorb);
   }
@@ -21,7 +22,6 @@ export class WarenkorbService {
     for (let i = 0; i < this.warenkorb.length; i++) {
       if (this.warenkorb[i].id == id) {
         this.warenkorb[i].anzahl++;
-        break;
       }
     }
   }

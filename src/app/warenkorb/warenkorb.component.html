@@ -2,10 +2,10 @@
 
     <img class="imgProdukt" [src]="product.bildUrl" alt="{{product.beschreibung}}" />
     <h3 class="beschreibung">{{product.beschreibung}}</h3>
-    <span class="preis">Preis: {{product.preis }}</span>
+    <span class="preis">Preis: {{product.preis | number : "1.2-2"}}€</span>
 
     <div class="grid-containerAnzahl">
-    <span class="anzahl">Anzahl: {{product.anzahl}}</span>
+    <span class="anzahl">Anzahl: {{product.anzahl}}x</span>
     <button (click)="anzahlerNiedrigen(product.id)" class="entfernen">
       <img src="Bilder/minus.png"/>
     </button>
@@ -13,4 +13,10 @@
       <img src="Bilder/plus.png"/>
     </button>
     </div>
+    <button class="delete">
+        <img src="Bilder/Muelleimer.png" (click)="deleteProduct(product.id)"/>
+    </button>
+    <span class="gesamtpreis">
+        Gesamtpreis: {{product.preis * product.anzahl | number : "1.2-2"}}€
+    </span>
   </div>
