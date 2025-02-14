@@ -30,5 +30,11 @@
     <div id="warenkorbInhalt">
       <app-warenkorb/> 
     </div>
+  <div class="border-box">
+    <span class="gesamtpreis">
+      Artikel: {{warenkorbService.getAnzahl()}}x <br>
+      Gesamtpreis: {{warenkorbService.getGesamtpreis() | number : "1.2-2"}}€
+    </span>
+  </div>
   </div>
 </main>

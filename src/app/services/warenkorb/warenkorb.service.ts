@@ -45,12 +45,25 @@ export class WarenkorbService {
 
     for (let i = 0; i < this.warenkorb.length; i++) {
       if (this.warenkorb[i].id === productId) {
+        this.warenkorb[i].anzahl = 0;
         this.warenkorb.splice(i, 1);
       }
     }
   }
 
+  getGesamtpreis(): string|number {
+    let gesamtpreis = 0;
+    this.warenkorb.forEach(p => {
+      gesamtpreis += p.preis * p.anzahl;
+    });
+    return gesamtpreis;
+  }
 
-
-
+getAnzahl(): number {
+    let anzahl = 0;
+    this.warenkorb.forEach(p => {
+      anzahl += p.anzahl;
+    });
+    return anzahl;
+}
 }
