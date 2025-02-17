@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { WarenkorbService } from '../services/warenkorb/warenkorb.service';
 import { Produkt } from './product_interface';
 
@@ -10,8 +10,10 @@ import { Produkt } from './product_interface';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent {
+[x: string]: any;
 
   @Input({ required: true }) produkt!: Produkt;
+  warenkorbService: WarenkorbService = inject(WarenkorbService);
 
   //deklaratioon der Variablen
   warenkorbbuttomCklicked: boolean = true; 

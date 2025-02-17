@@ -1,18 +1,14 @@
 <main>
-
   <div id="header">
     <img src="Bilder/logo.png" class="img">
   </div>
-  <div id="navigation">
 
+  <div id="navigation">
     <button class="profilbild-button" (click)="profilClicked()">
       <img src="Bilder/profilbild.png">
     </button>
-
-    <button (click)="einkaufeClicked()" class="einkaeufe">
-      Einkäufe
-    </button>
-
+    <button (click)="toggleWarenkorb()">Warenkorb</button>
+    <button (click)="einkaufeClicked()" class="einkaeufe">Einkäufe</button>
     <button class="logout" (click)="logoutClicked()">
       <img src="Bilder/logout.png">
     </button>
@@ -21,20 +17,25 @@
   <div id="produkte">
     @for(product of products; track products)
     {
-    <app-product-card [produkt]="product" />
+    <app-product-card class="product-card" [produkt]="product" />
     }
   </div>
 
-  <div id="warenkorb">
-    <img src="Bilder/warenkorbSchrift.png" class="imgWarenkorbschrift" />
-    <div id="warenkorbInhalt">
-      <app-warenkorb/> 
+  <div>
+    <!-- <button (click)="toggleWarenkorb()">Warenkorb</button> -->
+
+    <div id="warenkorb" [class.expanded]="isExpand">
+      <img src="Bilder/warenkorbSchrift.png" class="imgWarenkorbschrift" />
+      <div id="warenkorbInhalt">
+        <app-warenkorb />
+      </div>
+      <div class="border-box">
+        <span class="gesamtpreis">
+          Artikel: {{warenkorbService.getAnzahl()}}x <br>
+          Gesamtpreis: {{warenkorbService.getGesamtpreis() | number : "1.2-2"}}€
+        </span>
+        <button (click)="warenkorbService.removeAllProducts()">Löschen</button>
+      </div>
     </div>
-  <div class="border-box">
-    <span class="gesamtpreis">
-      Artikel: {{warenkorbService.getAnzahl()}}x <br>
-      Gesamtpreis: {{warenkorbService.getGesamtpreis() | number : "1.2-2"}}€
-    </span>
-  </div>
   </div>
 </main>

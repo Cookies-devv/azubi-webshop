@@ -51,19 +51,26 @@ export class WarenkorbService {
     }
   }
 
-  getGesamtpreis(): string|number {
+  getGesamtpreis(): string | number {
     let gesamtpreis = 0;
     this.warenkorb.forEach(p => {
       gesamtpreis += p.preis * p.anzahl;
     });
     return gesamtpreis;
   }
-
-getAnzahl(): number {
+  
+  getAnzahl(): number {
     let anzahl = 0;
     this.warenkorb.forEach(p => {
       anzahl += p.anzahl;
     });
     return anzahl;
 }
+
+  removeAllProducts(): void {
+    this.warenkorb.forEach(p => {
+      p.anzahl = 0;
+    });
+    this.warenkorb = [];
+  }
 }

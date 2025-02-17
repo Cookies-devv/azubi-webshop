@@ -2,11 +2,11 @@ main {
   height: 100vh;
   display: grid;
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 10% auto 30%;
+  grid-template-columns: 5% auto auto;
 
   #header {
     grid-row: 1;
-    grid-column:  1 / span 3;
+    grid-column: 1 / span 3;
     height: auto;
     width: 100%;
     background-color: #cccccc;
@@ -22,7 +22,7 @@ main {
 
   #navigation {
     grid-row: 1 / span 2;
-    grid-column: 1 ;
+    grid-column: 1;
     height: auto;
     background-color: #cccccc;
     display: grid;
@@ -80,7 +80,27 @@ main {
 
     border-style: solid;
     border-color: #f4f4f4;
+    align-content: start;
 
+
+    .product-card {
+      width: 350px;
+      height: 400px;
+      background-color: #cccccc;
+      color: #feffff;
+      font-size: 1.5rem;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      position: relative;
+      display: grid;
+      grid-template-areas:
+        "Img ."
+        "Beschreibung ."
+        "Preis Warenkorb";
+      grid-template-rows: 320px auto 40px;
+      grid-template-columns: 175px 175px;
+    }
 
   }
 
@@ -88,11 +108,20 @@ main {
 
   #warenkorb {
     grid-row: 2 / span 2;
-    grid-column:3 ;
-    height: auto;
+    grid-column: 3;
+    height: 100%;
+    width: 0;
     background-color: #cccccc;
     display: grid;
     grid-template-rows: 10% auto 10%;
+    transition: width 0.3s ease-in-out;
+    justify-self: end;
+
+
+    &.expanded {
+      width: 100%;
+    }
+
 
     .imgWarenkorbschrift {
       grid-row: 1;
@@ -106,12 +135,12 @@ main {
 
     #warenkorbInhalt {
       grid-row: 2;
-      height: auto;
+      height: 74vh;
       display: flex;
       flex-direction: column;
-      background-color: ccccccc;
+      background-color: transparent;
       overflow-y: auto;
-      scrollbar-width: none;
+      scrollbar-width: thin;
 
     }
 
@@ -130,7 +159,7 @@ main {
       width: 80%;
       margin: 0 auto;
       border-top: 3px solid rgb(119, 124, 136);
-  }
+    }
 
   }
 }

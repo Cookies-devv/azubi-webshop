@@ -15,13 +15,17 @@ import { WarenkorbComponent } from "./warenkorb/warenkorb.component";
   styleUrls: ['./app.component.scss'],  
 })
 export class AppComponent implements OnInit {
+
   title = 'azubi-webshop';
   products: Produkt[] = productMock;
   warenkorbProduct: Produkt[] = [];
  warenkorbService: WarenkorbService = inject(WarenkorbService);
+ isWarenkorbVisible = false;
+ isExpand = false;
 
   ngOnInit(): void {
     this.warenkorbProduct = this.warenkorbService.warenkorb;
+    this.isExpand = false;
   }
 
   profilClicked() {
@@ -35,4 +39,14 @@ export class AppComponent implements OnInit {
   logoutClicked() {
     alert('Logout Fenster');
   }
+
+  toggleWarenkorbVisibility() {
+    this.isWarenkorbVisible = !this.isWarenkorbVisible;
+  }
+
+  toggleWarenkorb() {
+    this.isExpand = !this.isExpand;
+    console.log("Warenkorb Status:", this.isExpand);
+  }
+  
 }
