@@ -1,0 +1,74 @@
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Halbtransparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    width: 20%;
+    height: 20%;
+    padding: 20px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 10% 45% 45%;
+    grid-template-rows: auto;
+    background-image: linear-gradient(to right, rgb(207, 207, 207), rgb(105, 105, 111));
+
+    .ueberschrift {
+        grid-row: 1;
+        grid-column: 1/ span 3;
+        font-size: 50px;
+        justify-self: center;
+        margin-top: 0;
+    }
+
+    .close-btn {
+        grid-row: 1;
+        grid-template-columns: 3;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .buttom_container {
+        grid-row: 1 /span 2;
+        grid-column: 1;
+        margin-top: 100%;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Fügt einen gleichmäßigen Abstand zwischen den Buttons hinzu */
+    }
+    
+    .einkaeufe, .logout, .login {
+        width: auto;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border-radius: 10%;
+        border-color: grey;
+        background-color: transparent;
+        font-size: 9px;
+        justify-self: center;
+        
+
+        img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+
+
+
+}
