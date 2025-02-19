@@ -1,5 +1,6 @@
 main {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 100px 1fr;
   grid-template-columns: 5% auto auto;
@@ -7,16 +8,67 @@ main {
   #header {
     grid-row: 1;
     grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: 50% auto;
     height: auto;
     width: 100%;
-    background-color: #cccccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    .img {
+    .ueberschrift {
+      grid-column: 1 / span 2;
+      grid-row: 1;
       width: 20%;
       height: auto;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+
+      font-weight: bolder;
+      font-size: 100px;
+
+    }
+
+
+    .warenkorbAnzeigen {
+      grid-column: 2;
+      grid-row: 1;
+      height: 50px;
+      width: auto;
+      position: relative;
+      justify-self: right;
+      align-items: center;
+      border-radius: 10px;
+      border-color: white;
+      margin-top: 40px;
+      margin-right: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .warenkorbAnzeigen::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(300deg,
+          rgba(95, 95, 95, 0) 20%,
+          rgba(95, 95, 95, 0.557) 50%,
+          rgba(95, 95, 95, 0) 80%), ;
+      animation: shimmer 8s infinite;
+      z-index: 1;
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+
+        100% {
+          left: 100%;
+        }
+      }
     }
   }
 
@@ -24,44 +76,21 @@ main {
     grid-row: 1 / span 2;
     grid-column: 1;
     height: auto;
-    background-color: #cccccc;
     display: grid;
     grid-template-rows: 40px auto 40px;
 
     .profilbild-button {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       cursor: pointer;
       display: flex;
+      margin-top: 30%;
       justify-self: center;
       align-items: stretch;
       justify-content: center;
       border-radius: 50%;
       border-color: transparent;
-    }
-
-    .einkaeufe {
-      width: 70%;
-      height: 40px;
-      font-size: 9px;
-      cursor: pointer;
-      justify-self: center; //Breite
-      align-self: center; //Höhe
-      border-radius: 10%;
-      border-color: transparent;
-    }
-
-    .logout {
-      width: 70%;
-      height: 40px;
-      cursor: pointer;
-      display: flex;
-      justify-self: center;
-      justify-content: center;
-      align-items: stretch;
-      border-radius: 10%;
-      border-color: transparent;
-
+      background-color: transparent;
     }
   }
 
@@ -69,37 +98,42 @@ main {
     grid-row: 2;
     grid-column: 2;
     height: auto;
-    background-color: rgb(255, 255, 255);
-
+    display: grid;
+    grid-template-columns: 90% 10%;
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
     scrollbar-width: none;
-
-    border-width: 4px;
-
-    border-style: solid;
-    border-color: #f4f4f4;
     align-content: start;
 
 
     .product-card {
+      grid-column: 1;
       width: 350px;
       height: 400px;
-      background-color: #cccccc;
+      background-image: linear-gradient(to right, rgba(134, 134, 134, 0.457), rgb(105, 105, 111));
       color: #feffff;
       font-size: 1.5rem;
       margin: 1rem;
       padding: 1rem;
       border-radius: 10px;
       position: relative;
-      display: grid;
-      grid-template-areas:
-        "Img ."
-        "Beschreibung ."
-        "Preis Warenkorb";
       grid-template-rows: 320px auto 40px;
       grid-template-columns: 175px 175px;
+      position: relative;
+      
+    }
+
+    
+    .product-card:hover {
+      animation: shake 0.3s ease-in-out;
+    }
+    
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-1px); }
+      50% { transform: translateX(1px); }
+      100% { transform: translateX(0); }
     }
 
   }
@@ -111,11 +145,10 @@ main {
     grid-column: 3;
     height: 100%;
     width: 0;
-    background-color: #cccccc;
     display: grid;
     grid-template-rows: 10% auto 10%;
-    transition: width 0.3s ease-in-out;
     justify-self: end;
+    position: relative;
 
 
     &.expanded {
@@ -131,12 +164,27 @@ main {
       justify-self: center;
       margin-top: 5%;
       margin-bottom: 5%;
+      box-shadow: 10px 10px 20px white;
+
+    }
+
+    .warenkorbschliessen {
+      grid-row: 1;
+      border-color: transparent;
+      background-color: transparent;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+
+      .img {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     #warenkorbInhalt {
       grid-row: 2;
       height: 74vh;
-      display: flex;
       flex-direction: column;
       background-color: transparent;
       overflow-y: auto;
@@ -144,21 +192,36 @@ main {
 
     }
 
-    .gesamtpreis {
-      grid-row: 3;
-      height: auto;
-
-      background-color: #cccccc;
-      // border-top: 5px solid rgb(119, 124, 136);
-      font-weight: bold;
-      font-size: 20px;
-      color: rgb(119, 124, 136);
-    }
-
     .border-box {
+      grid-row: 3;
+      display: grid;
+      grid-template-columns: 50% 50%;
       width: 80%;
       margin: 0 auto;
-      border-top: 3px solid rgb(119, 124, 136);
+      border-top: 3px solid rgb(255, 255, 255);
+
+      .gesamtpreis {
+        grid-column: 1;
+        height: auto;
+        // border-top: 5px solid rgb(119, 124, 136);
+        font-weight: bold;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+      }
+
+      .warenkorbleeren {
+        grid-column: 2;
+        width: 50%;
+        height: 30px;
+        align-self: center;
+        justify-self: center;
+        border-radius: 10%;
+        border-color: white;
+        background-color: white;
+        cursor: pointer;
+      }
+
+
     }
 
   }
