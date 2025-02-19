@@ -1,22 +1,3 @@
-.product-card 
-{
-  width: 350px;
-  height: 400px;
-  background-color:  #cccccc;
-  color: #feffff;
-  font-size: 1.5rem;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 10px;
-  position: relative;
-  display: grid;
-  grid-template-areas: 
-  "Img ."
-  "Beschreibung ."
-  "Preis Warenkorb";
-  grid-template-rows: 320px auto 40px;
-  grid-template-columns: 175px 175px ;
-}
 
 .bilder 
 {
