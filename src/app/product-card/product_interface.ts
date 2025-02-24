@@ -1,6 +1,6 @@
 export interface Produkt {
 
-     bildUrl: string;
+     bildUrl: string[];
      beschreibung: string;
      preis: number;
      id: string;

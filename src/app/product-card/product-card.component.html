@@ -1,6 +1,8 @@
 <div>
-  <div>
-    <img [src]="produkt.bildUrl" class="bilder" />
+  <div class="image-container">
+    <button class="buttonVZ" (click)="prevImage()">❮</button>
+    <img [src]="produkt.bildUrl[currentIndex]" class="bilder" />
+    <button class="buttonVZ" (click)="nextImage()">❯</button>
   </div>
 
   <div class="beschreibung">
