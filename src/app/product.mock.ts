@@ -77,33 +77,41 @@ export const productMock: Produkt[] = [
   },
   {
     bildUrl:
-      'https://nordlust.de/cdn/shop/files/nordlust-wave-eau-de-parfum-856391_800x.jpg?v=1719737577',
-    beschreibung: 'WAVE | Eau de Parfum',
+      'Bilder/rotesParfuem.png',
+    beschreibung: 'Parfüm',
+    preis: 150,
+    id: crypto.randomUUID(),
+    anzahl: 0,
+  },
+  {
+    bildUrl:
+      'Bilder/Pullover.png',
+    beschreibung: 'Pullover grau',
+    preis: 60.99,
+    id: crypto.randomUUID(),
+    anzahl: 0,
+  },
+  {
+    bildUrl:
+      'https://eustore.tenga.co/cdn/shop/files/PAR-016_01_2000_2000_400x.jpg?v=1735685953',
+    beschreibung: 'TNG Hoodie Gray',
+    preis: 49.99,
+    id: crypto.randomUUID(),
+    anzahl: 0,
+  },
+  {
+    bildUrl:
+      'https://www.bazixrepubliq.com/cdn/shop/files/23-08-28_Dropsize_sweater-lightblue-f_360x.jpg?v=1736016472',
+    beschreibung: 'Blauer Pullover',
     preis: 90,
     id: crypto.randomUUID(),
     anzahl: 0,
   },
   {
     bildUrl:
-      'https://nordlust.de/cdn/shop/files/nordlust-wave-eau-de-parfum-856391_800x.jpg?v=1719737577',
-    beschreibung: 'WAVE | Eau de Parfum',
-    preis: 90,
-    id: crypto.randomUUID(),
-    anzahl: 0,
-  },
-  {
-    bildUrl:
-      'https://nordlust.de/cdn/shop/files/nordlust-wave-eau-de-parfum-856391_800x.jpg?v=1719737577',
-    beschreibung: 'WAVE | Eau de Parfum',
-    preis: 90,
-    id: crypto.randomUUID(),
-    anzahl: 0,
-  },
-  {
-    bildUrl:
-      'https://nordlust.de/cdn/shop/files/nordlust-wave-eau-de-parfum-856391_800x.jpg?v=1719737577',
-    beschreibung: 'WAVE | Eau de Parfum',
-    preis: 90,
+      'https://reternity.de/cdn/shop/files/100724201_Hoodie_CD_faded-green_front.jpg?v=1724675880&width=300',
+    beschreibung: 'Blauer Pullover',
+    preis: 89.99,
     id: crypto.randomUUID(),
     anzahl: 0,
   },

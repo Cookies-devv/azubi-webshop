@@ -7,16 +7,11 @@
       (click)="toggleWarenkorb()">
       <span class="schrift">Warenkorb anzeigen</span>
     </button>
-  </div>
-
-  <div id="navigation">
-    <div>
     <button class="profilbild-button" (click)="profilePopup.openPopup()">
       <img src="Bilder/profilbild.png">
     </button>
     <app-profile-popup #profilePopup></app-profile-popup>
     </div>
-  </div>
 
   <div id="produkte">
     @for(product of products; track products)
@@ -26,7 +21,7 @@
   </div>
 
   <div>
-    <div id="warenkorb" [class.expanded]="isExpand">
+    <div id="warenkorb" *ngIf="isExpand" [class.expanded]="isExpand" >
       <div>
         <img src="Bilder/warenkorbSchrift.png" class="imgWarenkorbschrift" />
         <button class="warenkorbschliessen" (click)="warenkorbSchliessen()">
