@@ -1,6 +1,6 @@
 <div *ngFor="let product of warenkorbService.getWarenkorb()" class="grid-containerWarenkorb">
 
-    <img class="imgProdukt" [src]="product.bildUrl" alt="{{product.beschreibung}}" />
+    <img class="imgProdukt" [src]="product.bildUrl[0]" alt="{{product.beschreibung}}" />
     <h3 class="beschreibung">{{product.beschreibung}}</h3>
     <span class="preis">Preis: {{product.preis | number : "1.2-2"}}€</span>
 

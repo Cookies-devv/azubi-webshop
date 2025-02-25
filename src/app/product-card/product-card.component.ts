@@ -1,5 +1,6 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { WarenkorbService } from '../services/warenkorb/warenkorb.service';
 import { Produkt } from './product_interface';
 import { CommonModule } from '@angular/common';
@@ -11,24 +12,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.component.scss',
 })
 export class ProductCardComponent {
-  [x: string]: any;
-
   @Input({ required: true }) produkt!: Produkt;
   warenkorbService: WarenkorbService = inject(WarenkorbService);
-
-  //deklaratioon der Variablen
-  warenkorbbuttomCklicked: boolean = true;
   currentIndex: number = 0;
 
-
-  constructor(private warenkorbServices: WarenkorbService) { }
-
+  constructor(private warenkorbServices: WarenkorbService, private dialog: MatDialog) {}
 
   warenkorbclicked() {
-    if (this.warenkorbbuttomCklicked) {
-      this.warenkorbServices.addWarenkorb(this.produkt);
-    }
-
+    this.warenkorbServices.addWarenkorb(this.produkt);
   }
 
   prevImage() {

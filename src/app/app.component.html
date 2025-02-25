@@ -29,6 +29,9 @@
         </button>
       </div>
       <div id="warenkorbInhalt">
+        <div *ngIf="!warenkorbService.getAnzahl()" class="inhaltSchrift">
+          Warenkorb ist leer!
+        </div>
         <app-warenkorb />
       </div>
       <div class="border-box">

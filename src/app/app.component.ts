@@ -11,7 +11,7 @@ import { ProfilePopupComponent } from "./profile-popup/profile-popup.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCardComponent, WarenkorbComponent, CommonModule, ProfilePopupComponent],
+  imports: [ProductCardComponent, WarenkorbComponent, CommonModule, ProfilePopupComponent,],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],  
 })
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
  warenkorbService: WarenkorbService = inject(WarenkorbService);
  isWarenkorbVisible = true;
  isExpand = false;
+ isWarenkorbInhaltSchrift = true;
 
   ngOnInit(): void {
     this.warenkorbProduct = this.warenkorbService.warenkorb;
@@ -41,5 +42,5 @@ export class AppComponent implements OnInit {
     console.log("Warenkorb Status:", this.isExpand);
     this.isWarenkorbVisible = !this.isWarenkorbVisible;
   }
-  
+
 }
